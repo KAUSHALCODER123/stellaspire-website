@@ -1,0 +1,15 @@
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="site-bar">
+    <a class="brand" href="/home-page" aria-label="Stellaspire home">
+      <img src="https://cdn.prod.website-files.com/66a5fdf6d0c2ac84ca88fe93/6886351f114ee66a92aad258_WhatsApp-Image-2025-05-07-at-14.24.03.jpeg" alt="Stellaspire" width="54" height="57">
+    </a>
+
+    <nav id="site-nav" class="nav-links" aria-label="Main navigation">
+      <details class="nav-drop">
+        <summary>Services</summary>
+        <div class="drop-panel">
+          <a href="/finance-accounting-recruitment">Finance &amp; Accounting<span>Controllers, FP&amp;A, CAs, finance teams</span></a>
+          <a href="/cfo-executive-search">CFO &amp; Executive Sear

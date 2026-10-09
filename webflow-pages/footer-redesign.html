@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stellaspire footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --navy: #141733;
+  --off-white: #ffffff;
+  --link: #cfd3e6;
+  --muted: #9095b8;
+  --accent: #70b5f0;
+  --hairline: rgba(211, 211, 211, .18);
+
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Montserrat", Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+  --gutter: clamp(24px, 5vw, 80px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--navy);
+  font-family: var(--sans);
+}
+
+.site-footer {
+  background: var(--navy);
+  padding: clamp(64px, 7vw, 104px) var(--gutter) 28px;
+  color: var(--link);
+}
+
+.site-footer__inner {
+  width: min(100%, 1240px);
+  margin-inline: auto;
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(20px, 2.5vw, 40px);
+  row-gap: 56px;
+  align-items: start;
+  padding-bottom: clamp(56px, 6vw, 88px);
+}
+
+.brand-block { grid-column: span 5; }
+.col-services { grid-column: span 3; }
+.col-candidates { grid-column: span 2; }
+.col-locations { grid-column: span 2; }
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--off-white);
+  text-decoration: none;
+}
+
+.brand-lockup img {
+  display: block;
+  width: 37px;
+  height: 52px;
+}
+
+.brand-lockup span {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: .1em;
+}
+
+.tagline {
+  margin: 28px 0 32px;
+  max-width: 16ch;
+  color: var(--off-white);
+  font-family: var(--serif);
+  font-size: clamp(28px, 2.6vw, 32px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.015em;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.contact a { color: var(--link); }
+
+.site-footer address {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.col-heading {
+  margin: 0 0 20px;
+  color: var(--off-white);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer li + li { margin-top: 12px; }
+
+.site-footer a {
+  color: var(--link);
+  font-size: 15px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color .16s ease;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.brand-lockup:hover { text-decoration: none; }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-bottom p { margin: 0; }
+
+.legal {
+  display: flex;
+  gap: 28px;
+}
+
+.legal a { font-size: 13px; }
+
+@media (max-width: 900px) {
+  .brand-block { grid-column: span 12; }
+  .col-services,
+  .col-candidates,
+  .col-locations { grid-column: span 6; }
+}
+
+@media (max-width: 560px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    row-gap: 44px;
+  }
+  .brand-block,
+  .col-services,
+  .col-candidates,
+  .col-locations { grid-column: auto; }
+  .footer-bottom { flex-direction: column; }
+  .legal { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+
+      <div class="brand-block">
+        <a class="brand-lockup" href="/home-page" aria-label="Stellaspire home">
+          <img src="assets/stellaspire-mark.svg" alt="" width="37" height="52" loading="lazy">
+          <span>STELLASPIRE</span>
+        </a>
+
+        <p class="tagline">We take hiring personally.</p>
+
+        <div class="contact">
+          <a href="mailto:connect@stellaspire.com">connect@stellaspire.com</a>
+          <a href="https://wa.me/917024766117" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.linkedin.com/company/stellaspire/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+
+        <address>
+          WeWork Prestige Central<br>
+          36, Infantry Road<br>
+          Bengaluru, Karnataka 560001
+        </address>
+      </div>
+
+      <nav class="col-services" aria-label="Services">
+        <h2 class="col-heading">Services</h2>
+        <ul>
+          <li><a href="/finance-accounting-recruitment">Finance &amp; Accounting</a></li>
+          <li><a href="/cfo-executive-search">CFO &amp; Executive Search</a></li>
+          <li><a href="/gcc-hiring">GCC Hiring</a></li>
+          <li><a href="/analytics-data-recruitment">Analytics &amp; Data</a></li>
+          <li><a href="/ai-ml-recruitment">AI &amp; ML</a></li>
+          <li><a href="/diversity-hiring">Gender-Diversity Hiring</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col-candidates" aria-label="Candidates">
+        <h2 class="col-heading">Candidates</h2>
+        <ul>
+          <li><a href="/women-returnship">Women Returnship</a></li>
+          <li><a href="https://recruitcrm.io/talent_pool_submission/Stellaspire" target="_blank" rel="noopener">Join the Talent Pool</a></li>
+          <li><a href="/jobs">Open Roles</a></li>
+          <li><a href="/faqs">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col-locations" aria-label="Locations">
+        <h2 class="col-heading">Locations</h2>
+        <ul>
+          <li><a href="/india">India</a></li>
+          <li><a href="/india/bangalore-recruitment-agency">Bengaluru</a></li>
+          <li><a href="/india/mumbai-recruitment-agency">Mumbai</a></li>
+          <li><a href="/india/delhi-ncr-recruitment-agency">Delhi NCR</a></li>
+          <li><a href="/global">Global</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stellaspire. All rights reserved.</p>
+      <div class="legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

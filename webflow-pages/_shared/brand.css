@@ -1,0 +1,532 @@
+/* ==========================================================================
+   brand.css  (v9)  -- loaded last, overrides everything before it.
+
+   Why this file exists
+   --------------------
+   v6 built the dark sections on #211a35 and #120d24, which are dark purple.
+   The brand board is #947AD3 / #70B5F0 / #D3D3D3 / black. This layer puts the
+   dark surfaces back on black, keeps purple and blue as accents only, and
+   strips the soft radial "glow" washes that made several sections read as
+   generated rather than designed.
+
+   Rules of the layer
+   ------------------
+   1. Dark surfaces are black. Purple is an accent, never a background wash.
+   2. No blurred colour blobs. Edges are hairlines, planes are flat.
+   3. Asymmetric grids with a visible structure beat centred two-column boxes.
+   ========================================================================== */
+
+:root {
+  /* ---- the logo, as the source of truth -------------------------------
+     assets/stellaspire-mark.svg is a three-stop gradient:
+       #A77BE3 violet -> #8EA2EC periwinkle -> #62B6F2 sky
+     The CTA band and the footer are built from that family: deep, saturated
+     tones on the same violet-to-blue axis, so they read as the brand rather
+     than as a neutral dark. They are dark enough to hold white text at a
+     wide margin, which the logo colours themselves are not. */
+  --logo-violet: #a77be3;
+  --logo-mid: #8ea2ec;
+  --logo-blue: #62b6f2;
+  --grad: linear-gradient(90deg, #a77be3 0%, #8ea2ec 55%, #62b6f2 100%);
+
+  /* surfaces */
+  --ink: #1d2142;           /* CTA and method bands: deep indigo-violet */
+  --footer: #141733;        /* footer: a deeper step of the same axis */
+  --ink-text: #111216;      /* body text on white */
+  --night: #11142b;         /* deepest surface, for media cards */
+  --paper: #ffffff;
+  --mist: #f5f5f6;
+  --sky: #f4f6f9;
+  --line: #e3e3e6;
+  --rule: #d3d3d3;          /* brand grey, used as a drawn rule */
+
+  /* brand accents */
+  --brand-purple: #a77be3;
+  --brand-blue: #62b6f2;
+
+  /* text-safe versions of the accents, for small text on white */
+  --violet: #6b4fb8;
+  --violet-dark: #56399c;
+  --blue-ink: #2f7dc4;
+
+  /* on-dark text */
+  --aqua: #b79aea;          /* small caps / eyebrows on the indigo bands */
+  --on-dark: #cfd3e6;       /* body text on the indigo bands */
+  --muted: #5a5a63;
+}
+
+/* Text stays near-black; only the large surfaces use the graphite. */
+body, .h2, .page-title, .card-title, .step-title, .faq-button, .tick-list strong,
+.data-table td, .data-table th { color: var(--ink-text); }
+
+/* --------------------------------------------------------------- 1. Planes */
+.method,
+.cta-band { background: var(--ink); color: #fff; }
+.site-footer { background: var(--footer); color: #fff; }
+
+.method .body-copy,
+.cta-band .cta-copy,
+.method-body { color: var(--on-dark); }
+
+/* Kill the radial glow washes. These were the main "AI gradient" tell. */
+.reels::before,
+.reel-cta::before,
+.page-hero::before,
+.article-hero::before,
+.hero-visual::before,
+.hv::before { content: none !important; }
+
+/* ------------------------------------------------- 2. Buttons: black, square */
+.button {
+  border-radius: 0;
+  background: var(--ink);
+  color: #fff;
+  letter-spacing: .02em;
+  transition: background-color .18s ease, transform .18s ease;
+}
+.button:hover { background: var(--violet-dark); transform: translateY(-1px); }
+
+/* On black, the button inverts. */
+.method .button,
+.cta-band .button,
+.reel-cta .button,
+.site-footer .button {
+  background: #fff;
+  color: var(--ink);
+  border-radius: 0;
+}
+.method .button:hover,
+.cta-band .button:hover,
+.reel-cta .button:hover { background: var(--brand-purple); color: #fff; }
+
+/* ----------------------------------------------- 3. The method band, rebuilt
+   Before: two equal columns, vertically centred, 100px apart. The left column
+   held three short lines and a label, so most of its half was empty and the
+   section read as a template with the content missing.
+
+   After: an editorial 5/7 split that starts at the top, with a drawn rule and
+   a section index so the whitespace on the left is doing a job.            */
+.method {
+  position: relative;
+  padding: clamp(56px, 6vw, 88px) 0 clamp(48px, 5vw, 72px);
+  border-top: 1px solid rgba(183, 154, 234, .20);
+  border-bottom: 1px solid rgba(183, 154, 234, .20);
+}
+/* a single hairline of brand colour along the top edge, so the band reads as
+   a deliberate plane rather than a hole in the page */
+.method::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  background: var(--grad);
+  opacity: .9;
+}
+.method-grid {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+/* the index rule above the eyebrow */
+.method-grid > div:first-child { position: relative; padding-top: 28px; }
+.method-grid > div:first-child::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 72px; height: 2px;
+  background: var(--grad);
+}
+.method .eyebrow--light { color: var(--aqua); margin-bottom: 18px; }
+.method-heading {
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  max-width: 14ch;
+}
+.method-heading span { display: block; }
+
+/* right column: a hairline-separated block, so it reads as a considered note */
+.method-grid > div:last-child {
+  padding-top: 28px;
+  border-top: 1px solid rgba(183, 154, 234, .22);
+}
+.method-lede {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: clamp(20px, 2.1vw, 26px);
+  line-height: 1.35;
+  letter-spacing: -.01em;
+}
+.method-body {
+  max-width: 62ch;
+  margin-bottom: 28px;
+  color: var(--on-dark);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.light-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(183, 154, 234, .45);
+  color: #fff;
+  text-decoration: none;
+  transition: border-color .18s ease, color .18s ease;
+}
+.light-link:hover { border-bottom-color: var(--brand-purple); color: var(--brand-purple); }
+
+@media (max-width: 860px) {
+  .method-grid { grid-template-columns: 1fr; }
+  .method-heading { max-width: none; }
+}
+
+/* ------------------------------------------------------ 4. Video reel cards
+   The posters sat in a 2px gradient-ring frame at two different crops, which
+   is what made the row look pasted together. Flat black card, one aspect
+   ratio, one crop, a scrim that is a scrim rather than a colour wash.      */
+.reel {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--night);
+  aspect-ratio: 9 / 16;
+  cursor: pointer;
+}
+.reel::before { content: none; }        /* removes the gradient ring */
+.reel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(167, 123, 227, .22);
+  pointer-events: none;
+}
+.reel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+.reel:hover img { transform: scale(1.03); }
+/* The reels carry burned-in captions in the lower third, so the scrim stays
+   light down there and the duration chip moves to the top of the card. */
+.reel-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(8, 8, 10, .45) 0%, transparent 26%, transparent 72%, rgba(8, 8, 10, .35) 100%);
+}
+.reel-meta {
+  top: 14px;
+  bottom: auto;
+  align-items: flex-start;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+.reel-play::before { content: none; }   /* drops the pulsing halo */
+.reel-play {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: none;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .28);
+  transition: transform .2s ease, background-color .2s ease;
+}
+.reel-play::after { border-left: 16px solid var(--ink); }
+.reel:hover .reel-play { background: #fff; transform: translate(-50%, -50%) scale(1.08); }
+.reel-tag {
+  border-radius: 0;
+  background: var(--brand-purple);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.reel-card { border-radius: 0; }
+.reel-title { margin-top: 18px; letter-spacing: -.01em; }
+
+/* The CTA tile in the reel row: flat black with a drawn top rule, no blobs. */
+.reel-cta {
+  border-radius: 0;
+  background: var(--ink);
+  border-top: 2px solid transparent;
+  border-image: var(--grad) 1;
+  border-image-slice: 0 0 0 0;
+  justify-content: flex-end;
+  padding: clamp(26px, 3vw, 36px);
+}
+.reel-cta::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  background: var(--grad);
+}
+.reel-cta .eyebrow--light { color: var(--aqua); }
+.reel-cta-title { color: #fff; letter-spacing: -.015em; }
+
+/* ------------------------------------------------------------- 5. Footer
+   Black ground, brand-grey type, one accent rule at the top, a wider first
+   column and real spacing between the link groups.                        */
+.site-footer {
+  position: relative;
+  padding: clamp(64px, 7vw, 96px) 0 32px;
+  background: var(--footer);
+  color: #fff;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: var(--grad);
+}
+/* five children now: brand, Services, Candidates, Locations, Company */
+.footer-grid {
+  grid-template-columns: minmax(0, 1.9fr) repeat(4, minmax(0, 1fr));
+  gap: clamp(28px, 3.2vw, 52px);
+  padding-bottom: clamp(44px, 5vw, 64px);
+}
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.footer-tagline {
+  margin: 20px 0 26px;
+  max-width: 28ch;
+  color: #fff;
+  font-size: 19px;
+  line-height: 1.45;
+  letter-spacing: -.01em;
+}
+.footer-heading {
+  margin: 6px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(183, 154, 234, .24);
+  color: var(--aqua);
+  font-size: 10px;
+  letter-spacing: .18em;
+}
+.footer-link {
+  min-height: 34px;
+  padding: 7px 0;
+  color: var(--on-dark);
+  font-size: 14px;
+  transition: color .16s ease, padding-left .16s ease;
+}
+.footer-link:hover { color: #fff; padding-left: 6px; }
+.footer-address { color: var(--on-dark); font-size: 13px; }
+.footer-bottom {
+  align-items: baseline;
+  padding-top: 24px;
+  border-top: 1px solid rgba(183, 154, 234, .24);
+  color: #8e8e98;
+  font-size: 12px;
+  letter-spacing: .01em;
+}
+
+@media (max-width: 1100px) {
+  .footer-grid { grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 10px; }
+}
+
+/* --------------------------------------------- 6. Accents used as accents */
+.page-title .accent,
+.hero--live .hero-title .line + .line {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--violet);
+}
+.result-number {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--ink);
+}
+.eyebrow { color: var(--violet); }
+.table-wrap { border-top: 2px solid var(--ink); }
+.short-answer { border-top: 2px solid var(--brand-purple); background: var(--mist); }
+.tick-list li::before { content: "\2014"; color: var(--brand-purple); }
+.chip { border-radius: 0; }
+.card { border-radius: 0; }
+
+
+/* The illustrative search-process card sits on the dark band, so its shadow
+   has to read against graphite rather than against white. */
+.method .hv-card,
+.hv-card {
+  box-shadow: 0 32px 64px -32px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .06);
+}
+.method .hv { padding-top: 8px; }
+.method .eyebrow--light + .hv { margin-top: 12px; }
+
+/* ==========================================================================
+   v10: CTA band and footer, rebuilt to the editorial brief.
+
+   Applied as styling over the existing markup, so it ships without the
+   Designer. The copy, the arrow glyphs and the Privacy/Terms links live in
+   the embeds and follow when the Designer bridge is back.
+
+   Palette is the brand board only: #70B5F0 is the single accent. Fraunces is
+   loaded for exactly two elements, the CTA headline and the footer tagline;
+   everything else stays Montserrat.
+   ========================================================================== */
+
+:root {
+  --accent: #70b5f0;
+  --accent-hover: #8cc4f4;
+  --editorial: "Fraunces", Georgia, "Times New Roman", serif;
+}
+
+/* ---------------------------------------------------------- CTA band ---- */
+.cta-band {
+  position: relative;
+  padding: clamp(72px, 9vw, 132px) 0;
+  background: var(--ink);
+}
+.cta-band::before { content: none; }
+
+.cta-grid {
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(16px, 2vw, 32px);
+  row-gap: 0;
+  align-items: start;
+}
+
+.cta-title {
+  grid-column: 1 / 9;
+  font-family: var(--editorial);
+  font-size: clamp(40px, 5.2vw, 68px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: #fff;
+  text-wrap: balance;
+}
+.cta-title .is-aqua { color: var(--accent); }
+
+/* the single hairline, and the offset body column beneath the headline */
+.cta-grid > div:last-child {
+  grid-column: 5 / 11;
+  margin-top: clamp(44px, 5vw, 72px);
+  padding-top: clamp(20px, 2vw, 28px);
+}
+.cta-copy {
+  max-width: 55ch;
+  margin-bottom: clamp(30px, 3.5vw, 44px);
+  color: #cfd3e6;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.cta-actions { gap: 16px 28px; }
+
+.cta-band .button {
+  padding: 16px 32px;
+  border-radius: 0;
+  background: var(--accent);
+  color: #11142b;
+  font-weight: 600;
+  transition: background-color .18s ease;
+}
+.cta-band .button:hover { background: var(--accent-hover); color: #11142b; transform: none; }
+.cta-band .light-link { border-bottom-color: rgba(211, 211, 211, .35); }
+.cta-band .light-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+@media (max-width: 900px) {
+  .cta-grid { display: block; }
+  .cta-grid > div:last-child { margin-top: 36px; padding-top: 32px; }
+}
+
+/* ------------------------------------------------------------- Footer --- */
+.site-footer::before { content: none; }
+
+.site-footer { background: var(--footer); }
+
+.footer-tagline {
+  margin: 26px 0 30px;
+  max-width: 16ch;
+  color: #fff;
+  font-family: var(--editorial);
+  font-size: clamp(27px, 2.5vw, 32px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.015em;
+}
+
+.footer-heading {
+  margin: 0 0 20px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.footer-link {
+  min-height: 0;
+  padding: 6px 0;
+  color: #cfd3e6;
+  font-size: 15px;
+  line-height: 1.4;
+  transition: color .16s ease;
+}
+.footer-link:hover {
+  padding-left: 0;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.footer-brand { font-size: 22px; letter-spacing: .1em; }
+.footer-address { margin: 18px 0 0; color: #9095b8; font-size: 14px; line-height: 1.6; }
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(211, 211, 211, .18);
+  color: #9095b8;
+  font-size: 13px;
+}
+
+
+/* No gradient rules anywhere outside the logo. The method band keeps a plain
+   hairline top edge so it still separates from the section above it. */
+.method::before { content: none; }
+.method {
+  border-top: 1px solid rgba(211, 211, 211, .14);
+  border-bottom: 1px solid rgba(211, 211, 211, .14);
+}
+.method-grid > div:first-child::before { content: none; }
+.method-grid > div:first-child { padding-top: 0; }
+.method-grid > div:last-child { border-top: 0; padding-top: 0; }
+
+/* The CTA band above the footer is removed. It is stripped from the page
+   sources; this rule also hides it on any embed still carrying the old
+   markup, so it disappears from the live site without a Designer push. */
+.cta-band { display: none !important; }
+
+/* The location hubs use the whole card as a link, so it must not inherit the
+   default link underline. */
+a.card { text-decoration: none; color: inherit; transition: border-color .18s ease, transform .18s ease; }
+a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+a.card .card-title, a.card .card-meta, a.card .body-copy { text-decoration: none; }
+a.card .textlink { pointer-events: none; }

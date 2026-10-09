@@ -1,0 +1,14 @@
+# Upload scripts carry Webflow/S3 presigned policies and credentials
+webflow-pages/_shared/upload_*.py
+webflow-pages/_shared/upload_images.sh
+
+# Generated previews and old build backups
+webflow-pages/preview/
+webflow-pages/preview6/
+webflow-pages/_backup*/
+
+# Python cache and OS files
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

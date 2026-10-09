@@ -1,0 +1,49 @@
+<script>
+(function () {
+  // Mobile menu
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('site-nav');
+  var mobile = window.matchMedia('(max-width: 960px)');
+
+  function syncMenu() {
+    nav.hidden = mobile.matches;
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  syncMenu();
+  mobile.addEventListener('change', syncMenu);
+
+  toggle.addEventListener('click', function () {
+    var open = toggle.getAttribute('aria-expanded') === 'true';
+    nav.hidden = open;
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+  nav.addEventListener('click', function (e) {
+    if (mobile.matches && e.target.closest('a')) {
+      nav.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mobile.matches && !nav.hidden) {
+      nav.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+  });
+
+  // FAQ accordion (answers stay visible if JavaScript is off)
+  document.querySelectorAll('.faq-button').forEach(function (button) {
+    var answer = document.getElementById(button.getAttribute('aria-controls'));
+    var icon = button.querySelector('.faq-icon');
+    answer.hidden = true;
+    button.setAttribute('aria-expanded', 'false');
+    icon.textContent = '+';
+    button.addEventListener('click', function () {
+      var open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!open));
+      answer.hidden = open;
+      icon.textContent = open ? '+' : '−';
+    });
+  });
+})();
+</script>
