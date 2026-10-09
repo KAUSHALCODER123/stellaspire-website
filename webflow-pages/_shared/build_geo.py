@@ -252,9 +252,7 @@ def ld(service_name, service_type, desc, path, area, crumb, faqs):
 
 GENERIC_FAQS = [
     ("How are your fees structured?",
-     "A percentage of annual fixed pay for contingency search, a staged fee for retained leadership search, and a monthly rate for dedicated team hiring. Commercial and replacement terms go to you in writing before the search starts."),
-    ("Do candidates pay anything?",
-     "No. Stellaspire never charges a candidate for any part of the process."),
+     "A percentage of annual fixed pay for contingency, a staged fee for retained leadership search, and a monthly rate for dedicated team hiring, all agreed in writing before the search starts."),
 ]
 
 
@@ -342,8 +340,7 @@ def city_page(key):
                 eyebrow="Sectors and roles", cols=("Sector", "Typical roles", "Seniority"))
         + method(f"Hiring in {name}", ci["market_h"].replace(" actually looks like.", " rewards."),
                  f"We shortlist for {name} on commute and employer fit as well as skill.",
-                 "Every profile carries current pay in INR, notice period, the reason for the move and an honest note on the gaps. "
-                 f"Where a brief is priced below what {name} is paying today, we say so in the first week rather than running a search we expect to lose.")
+                 f"Every profile carries current pay in INR, notice period and an honest note on the gaps. If a brief is priced below what {name} pays today, we say so in week one.")
         + chips_band("Where we hire", f"Across {name}.",
                      f"We run searches across the main business districts and the industrial belt around {name}.",
                      "Business districts", ci["hubs"],
@@ -369,21 +366,17 @@ def india_hub():
         for k in CITY_ORDER)
     faqs = [
         ("Which Indian cities do you hire in?",
-         "Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune, Chennai, Ahmedabad and Kolkata. We are based in Bengaluru and run searches in the other cities from there, with candidates met locally."),
+         "Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune, Chennai, Ahmedabad and Kolkata, run from our Bengaluru base with candidates met locally."),
         ("Does pay differ much between Indian cities?",
-         "A great deal, for the same role. Bengaluru and Mumbai sit at the top, Hyderabad and Pune below them, Ahmedabad and Kolkata lower again. We benchmark by city and by the specific employers competing for the person."),
+         "A great deal for the same role, so we benchmark by city and by the specific employers competing for the person."),
         ("Which city should we put a new team in?",
-         "It depends on the function. Bengaluru for depth in technology and AI, Hyderabad and Pune for cost and retention in shared services, Mumbai for financial services, Ahmedabad for offshore accounting delivery, Chennai for manufacturing finance."),
-        ("Can you hire in a city you do not list?",
-         "Usually yes. The listed cities are where we run searches regularly. Tell us the location and we will say honestly whether we can do it well."),
-        ("Do you hire outside finance, data and AI?",
-         "We stay inside finance, accounting, FP&amp;A, analytics, AI and the engineering roles around them. For anything else we would rather refer you on."),
+         "Bengaluru for technology and AI depth, Hyderabad and Pune for cost and retention, Mumbai for financial services, Ahmedabad for offshore accounting, Chennai for manufacturing finance."),
     ]
     body = (
         hero(crumbs([("Home", "/home-page"), ("India", None)]),
              "Recruitment across India", "Recruitment agency in India.",
              "Finance, data and AI hiring in eight cities.",
-             "Stellaspire is a women-led search firm based in Bengaluru. We hire finance, accounting, analytics, AI and leadership talent across India's eight main hiring markets, and we price every search against the city it sits in rather than a national average.",
+             "Finance, accounting, analytics, AI and leadership talent across India's eight main hiring markets, priced against the city rather than a national average.",
              "Stellaspire hires finance, accounting, analytics, AI and leadership talent across Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune, Chennai, Ahmedabad and Kolkata, with pay benchmarked city by city.",
              "Start a hiring conversation", "Choose a city", anchor="#cities")
         + f"""
@@ -405,9 +398,9 @@ def india_hub():
 """
         + method("Why city matters", "A national salary band is a guess.",
                  "We benchmark against the employers competing for your candidate, in your city.",
-                 "Pay, notice periods, attrition and commute tolerance all move city by city, and so does the employer set you are hiring against. A brief built on a national average usually lands between two markets and wins neither. Every search we open starts with the city before it starts with the role.")
+                 "Pay, notice periods, attrition and commute tolerance all move city by city. Every search we open starts with the city before the role.")
         + chips_band("For global teams", "Hiring into India from abroad.",
-                     "If your head office is outside India, start from the country page: it covers entity, payroll, time zones and the compliance questions your team will ask.",
+                     "If your head office is outside India, start from the country page: entity, payroll, time zones and compliance.",
                      "Countries", [geo.COUNTRIES[k]["nav"] for k in geo.COUNTRIES],
                      related=[(geo.COUNTRIES[k]["nav"], geo.COUNTRIES[k]["path"]) for k in geo.COUNTRIES],
                      hid="global")
@@ -429,23 +422,17 @@ def global_hub():
         for k in geo.COUNTRIES)
     faqs = [
         ("Which countries do you work with?",
-         "We work with companies headquartered in the United States, the United Kingdom, the UAE, Singapore and Australia, and with Indian businesses hiring at home. The hiring itself happens in India unless the brief is a relocation search into the Gulf."),
+         "Companies headquartered in the United States, the United Kingdom, the UAE, Singapore and Australia, plus Indian businesses hiring at home."),
         ("Do we need an Indian entity to hire?",
-         "No. Most first hires go through an employer of record or our staffing payroll, and move onto your own Indian entity once it exists. Offers are written so the transfer changes nothing for the employee."),
-        ("How do you handle the time difference?",
-         "It goes in the brief, not in the offer letter. We agree the working pattern before the search opens and test every candidate against it, because a shift expectation discovered late is the most common reason a good hire leaves within six months."),
-        ("What does hiring in India actually cost?",
-         "Less than most head offices expect at the analyst level and much less than they expect at controller and director level, though the gap has narrowed sharply for AI and data engineering. We benchmark by city and share the range before you approve the brief."),
-        ("Which roles do you cover?",
-         "Finance and accounting, FP&amp;A, controllership, treasury and risk, analytics and data, AI and ML, the engineering roles around them, and finance leadership up to CFO."),
+         "No. Most first hires go through an employer of record or our staffing payroll, then move onto your own entity once it exists."),
         ("How long does a search take?",
-         "Four to six weeks from brief to signed offer for specialist roles and six to ten for leadership, plus an Indian notice period that commonly runs 60 to 90 days at senior levels."),
+         "Four to six weeks from brief to signed offer for specialist roles, six to ten for leadership, plus a 60 to 90 day notice period at senior levels."),
     ]
     body = (
         hero(crumbs([("Home", "/home-page"), ("Global", None)]),
              "Hiring in India from anywhere", "Hire talent in India,",
              "from wherever your head office is.",
-             "Stellaspire is a women-led search firm in Bengaluru. We hire finance, accounting, analytics, AI and leadership talent in India for companies headquartered in the US, the UK, the UAE, Singapore and Australia, and we answer the entity, payroll and time-zone questions before they become the reason a hire falls through.",
+             "Finance, accounting, analytics, AI and leadership talent in India for companies headquartered in the US, the UK, the UAE, Singapore and Australia.",
              "We run specialist searches in India for global companies: finance, accounting, analytics, AI and leadership. One recruiter per mandate, a shortlist with pay and notice periods written on it, and a working pattern agreed before the search opens.",
              "Start a hiring conversation", "Choose your country", anchor="#countries")
         + f"""
@@ -467,7 +454,7 @@ def global_hub():
 """
         + method("What we are good at", "We hire in one country and we know it well.",
                  "Depth in one market beats a logo map of thirty offices.",
-                 "Stellaspire places people in India. That is the whole business, which is why we can tell you what a controller in Hyderabad earns this quarter, which GCC is about to lose its analytics team and why a brief priced on last year's numbers will not close. For roles outside finance, data and AI, we would rather refer you on than run a search we cannot judge.")
+                 "We place people in India and nowhere else, so we can tell you what a controller in Hyderabad earns this quarter and why a brief priced on last year's numbers will not close.")
         + cards("How engagements run", "Three ways to work with us.",
                 "Commercial and replacement terms are agreed in writing before any search begins.",
                 [("Single roles", "Contingency search", "For specialist and mid-senior hires. A fee is payable only when a candidate we introduce joins."),
@@ -475,7 +462,7 @@ def global_hub():
                  ("Team builds", "Dedicated hiring", "For new centres hiring several roles at once, with one recruiter, a shared hiring plan and a weekly pipeline review.")],
                 hid="models")
         + chips_band("Where the hiring happens", "Eight Indian cities.",
-                     "We are based in Bengaluru and run searches across India's main hiring markets. Pay, notice periods and attrition differ enough between them that we benchmark city by city.",
+                     "Pay, notice periods and attrition differ enough between them that we benchmark city by city.",
                      "Cities", [geo.CITIES[k]["name"] for k in CITY_ORDER],
                      related=[("All India locations", "/india")]
                      + [(geo.CITIES[k]["name"], geo.CITIES[k]["slugpath"]) for k in CITY_ORDER[:4]],
@@ -492,38 +479,30 @@ def global_hub():
 
 def global_india_page():
     faqs = [
-        ("Why hire in India rather than somewhere else?",
-         "Depth, in the functions we cover. India produces more chartered accountants, data engineers and ML practitioners than any comparable market, and the senior layer now has twenty years of experience working for global parents. The trade-offs are notice periods and attrition, both of which are manageable if the brief is honest."),
         ("What does it cost to hire in India?",
-         "It varies more by city and function than most head offices expect. The gap against Western salaries is widest at the analyst level and narrowest for AI, data engineering and controllership, where Indian pay has moved quickly. We benchmark each role against the specific employers competing for the person."),
-        ("Do we need a legal entity in India?",
-         "Not to start. An employer of record or a staffing payroll covers the first hires, and people move onto your own entity once it is incorporated. We draft offers so that the transfer does not reset tenure, benefits or notice."),
+         "It varies more by city and function than most head offices expect, so we benchmark each role against the specific employers competing for the person."),
         ("What is a normal notice period?",
-         "Thirty days at junior levels, 60 to 90 at manager level and above, and sometimes longer in financial services. It is the single biggest difference from Western hiring timelines and it belongs in your plan from day one."),
-        ("How bad is attrition really?",
-         "Worst in Bengaluru, better in Pune, Chennai, Ahmedabad and Kolkata. The usable predictor is not the market average but the reason behind a candidate's last two moves, which is what we screen for."),
+         "Thirty days at junior levels, 60 to 90 at manager level and above, and sometimes longer in financial services."),
         ("Can an India team work our hours?",
-         "Partly, and the honest answer depends on where you are. The UK, the UAE and Singapore overlap comfortably. Australia works from its afternoon onwards. The US needs a 2pm to 11pm IST shift, which most finance and analytics candidates will take and most engineers would rather not."),
-        ("How do you choose the city?",
-         "By function and by budget. Bengaluru for technology and AI depth, Hyderabad and Pune for cost and retention, Mumbai for financial services, Ahmedabad for offshore accounting, Chennai for manufacturing finance, Delhi NCR for consulting and GCC leadership."),
+         "The UK, the UAE and Singapore overlap comfortably, Australia works from its afternoon onwards, and the US needs a 2pm to 11pm IST shift."),
     ]
     body = (
         hero(crumbs([("Home", "/home-page"), ("Global", "/global"), ("Hire talent in India", None)]),
              "Hiring in India", "Hire talent in India.",
              "What it costs, how long it takes, what goes wrong.",
-             "Everything a head office outside India needs to decide before the first search opens: entity and payroll, the real cost by city and function, notice periods, attrition, the overlap window and the four things that make an India hire fail. Written by the people who run the searches.",
+             "Entity and payroll, the real cost by city, notice periods, the overlap window and the four things that make an India hire fail.",
              "You can hire in India without an entity, and a specialist finance or data search takes four to six weeks plus a 60 to 90 day notice period. Cost varies more by city than most head offices expect, and the most common failure is a shift expectation nobody put in the brief.",
              "Start a hiring conversation", "Read the practical bits", anchor="#roles")
         + split("The honest version", "Four things that make an India hire fail.",
                 "None of them are about the candidate pool, which is deep. They are about the brief.",
                 [("A salary band set on a national average.",
-                  "Pay moves by half again between Bengaluru and Kolkata for the same role, and faster than annual benchmarks capture in AI and data engineering."),
+                  "Pay moves by half again between Bengaluru and Kolkata for the same role."),
                  ("A shift expectation discovered at offer stage.",
-                  "Candidates accept, then leave within six months. Put the working pattern in the brief and test every shortlisted person against it."),
+                  "Put the working pattern in the brief and test every shortlisted person against it."),
                  ("No senior person on the ground.",
-                  "An offshore team whose only manager sits in another country needs more supervision than it saves. Hire the supervisor first."),
+                  "Hire the supervisor first."),
                  ("Planning around a 30-day notice period.",
-                  "Sixty to ninety days is normal at manager level and above, and the counter-offer arrives during it. Timelines that ignore this slip by a quarter.")],
+                  "Sixty to ninety days is normal at manager level and above.")],
                 hid="fail")
         + table([("Finance &amp; accounting", "Controller, R2R lead, statutory and group reporting, chartered accountants", "Manager to Director"),
                  ("FP&amp;A", "FP&amp;A manager, business finance partner, commercial finance", "Analyst to Senior Manager"),
@@ -535,15 +514,15 @@ def global_india_page():
                 "We stay inside finance, accounting, analytics, AI and the engineering around them. Outside that, we refer you on.")
         + method("The part people underestimate", "Notice periods change your whole plan.",
                  "Sixty to ninety days is normal, and that is after a four to six week search.",
-                 "Work backwards from the start date you need. A specialist hire that opens in January is usually at a desk in April, and a leadership hire later than that. Teams that plan for a 30-day notice period end up either paying a buy-out or losing the candidate to an employer who planned properly. We put the realistic joining date on the shortlist, next to the pay.")
+                 "Work backwards from the start date you need: a specialist hire that opens in January is usually at a desk in April. We put the realistic joining date on the shortlist, next to the pay.")
         + cards("Getting set up", "Entity, payroll and the first offer.",
                 "Most clients make their first hires before the Indian entity exists.",
-                [("Fastest start", "Employer of record", "Your hire is employed by a licensed Indian provider and works for you. Set-up takes days, not months, and the cost is a margin on payroll."),
-                 ("Scaling up", "Your own entity", "A private limited company plus a payroll provider. Worth it from roughly the fifth hire, and necessary if you want long-term retention structures."),
-                 ("Either route", "What goes in the offer", "Cost to company rather than base pay, provident fund, gratuity, notice period, and the joining bonus structure that is market for the role.")],
+                [("Fastest start", "Employer of record", "Your hire is employed by a licensed Indian provider and works for you. Set-up takes days."),
+                 ("Scaling up", "Your own entity", "A private limited company plus a payroll provider, worth it from roughly the fifth hire."),
+                 ("Either route", "What goes in the offer", "Cost to company, provident fund, gratuity, notice period and the joining bonus that is market for the role.")],
                 hid="setup")
         + chips_band("Where the hiring happens", "Pick the city before the role.",
-                     "Function, cost and retention all point to different cities. Each city page covers its employer set, what drives pay there and the commute lines that decide whether an offer is accepted.",
+                     "Function, cost and retention all point to different cities. Each city page covers its employer set and what drives pay there.",
                      "Cities", [geo.CITIES[k]["name"] for k in CITY_ORDER],
                      related=[("All India locations", "/india")]
                      + [(geo.COUNTRIES[k]["nav"], geo.COUNTRIES[k]["path"]) for k in geo.COUNTRIES],
