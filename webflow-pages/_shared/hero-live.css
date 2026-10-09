@@ -79,7 +79,7 @@
 [data-stage="3"] .ls-balanced, [data-stage="4"] .ls-balanced { opacity: 1; transform: none; }
 
 /* Floating layers with depth */
-.ls-toast { position: absolute; left: -132px; bottom: 64px; display: flex; align-items: center; gap: 12px; padding: 14px 18px 14px 14px; background: #000; color: #fff; border-radius: 4px; box-shadow: 0 24px 50px -20px rgba(0,0,0,.5);
+.ls-toast { position: absolute; left: -24px; bottom: 64px; display: flex; align-items: center; gap: 12px; padding: 14px 18px 14px 14px; background: #000; color: #fff; border-radius: 4px; box-shadow: 0 24px 50px -20px rgba(0,0,0,.5);
   transform: translateZ(70px) translateY(16px) scale(.96); opacity: 0; transition: opacity .45s ease, transform .5s cubic-bezier(.2,.8,.2,1.2); }
 [data-stage="4"] .ls-toast { opacity: 1; transform: translateZ(70px); }
 .ls-toast b { display: block; font-size: 14px; }

@@ -46,13 +46,11 @@ j = s.find("</a>", s.find("Meet Nikita on LinkedIn")) + 4
 s = s[:j] + "</div>" + s[j:]
 
 # Candidates
-k = s.find("</div>", s.find('href="https://recruitcrm.io/jobs/Stellaspire"', s.find('id="candidates"')))
+k = s.find("</div>", s.find('href="/jobs"', s.find('id="candidates"')))
 s = s[:k] + '  <a class="textlink" href="/women-returnship">Women Returnship <span aria-hidden="true">→</span></a>\n        ' + s[k:]
-rep('<p class="small-note">Both links open Recruit CRM in a new tab.</p>',
-    '<p class="small-note">Talent Pool and Active Opportunities open Recruit CRM in a new tab.</p>')
 
 # Insights
-rep('href="https://www.stellaspire.com/blogs">View All Insights', 'href="/insights">View All Insights')
+rep('href="https://www.stellaspire.com/blogs">View all insights', 'href="/insights">View all insights')
 s = s.replace("https://www.stellaspire.com/post/", "/post/")
 last = s.rfind("</article>", 0, s.find("<!-- ============ FAQ")) + len("</article>")
 s = s[:last] + """
@@ -95,7 +93,7 @@ form = """<!-- Webflow processes this embedded form (w-form structure). Test a s
           <option>Other</option>
         </select>
 
-        <input class="button" type="submit" value="Send Hiring Brief" data-wait="Sending...">
+        <input class="button" type="submit" value="Send hiring brief" data-wait="Sending...">
       </form>
       <div class="w-form-done" tabindex="-1" role="region" aria-label="Form success"><div>Thank you. We have your brief and will reply shortly.</div></div>
       <div class="w-form-fail" tabindex="-1" role="region" aria-label="Form failure"><div>Something went wrong. Please email connect@stellaspire.com.</div></div>

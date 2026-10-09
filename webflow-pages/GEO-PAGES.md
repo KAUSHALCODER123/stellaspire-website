@@ -40,7 +40,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/us`  (Webflow: create the folder, then the page)
 - **Title:** India recruitment agency for US companies | Stellaspire
-- **Description:** Stellaspire is a women-led search firm in Bengaluru. We hire finance, accounting, analytics and AI talent in India for US companies, run every interview loop 
+- **Description:** Women-led search firm in Bengaluru hiring finance, analytics and AI talent in India for US companies, with interview loops run around your time zone.
 - **Language:** `en-US`
 - **Embed:** `out/geo-us.html`
 
@@ -59,7 +59,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/us/it-recruitment`  (Webflow: create the folder, then the page)
 - **Title:** IT Recruitment in India for US companies | Stellaspire
-- **Description:** Stellaspire works with US-headquartered companies. We hire software engineering, data and AI roles in India, screen for what the candidate has actually built,
+- **Description:** Stellaspire works with US-headquartered companies. We hire software, data and AI roles in India, screen for what the candidate has actually built, and run the
 - **Language:** `en-US`
 - **Embed:** `out/geo-us-it-recruitment.html`
 
@@ -83,7 +83,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/uk`  (Webflow: create the folder, then the page)
 - **Title:** India recruitment agency for UK companies | Stellaspire
-- **Description:** Stellaspire is a women-led search firm in Bengaluru. We hire finance, accounting, analytics and AI talent in India for UK companies, work a 4.5 to 5.5 hour di
+- **Description:** Women-led search firm in Bengaluru hiring finance, analytics and AI talent in India for UK companies, on a 4.5 to 5.5 hour time difference that suits both sid
 - **Language:** `en-GB`
 - **Embed:** `out/geo-uk.html`
 
@@ -102,7 +102,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/uk/it-recruitment`  (Webflow: create the folder, then the page)
 - **Title:** IT Recruitment in India for UK companies | Stellaspire
-- **Description:** Stellaspire works with UK-headquartered companies. We hire software engineering, data and AI roles in India, screen for what the candidate has actually built,
+- **Description:** Stellaspire works with UK-headquartered companies. We hire software, data and AI roles in India, screen for what the candidate has actually built, and run the
 - **Language:** `en-GB`
 - **Embed:** `out/geo-uk-it-recruitment.html`
 
@@ -126,7 +126,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/uae`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency for UAE companies | Stellaspire
-- **Description:** Stellaspire is a women-led search firm in Bengaluru. We hire finance, accounting, analytics and AI talent for UAE companies, source India-based candidates for
+- **Description:** Women-led search firm in Bengaluru hiring finance, analytics and AI talent for UAE companies: relocation hires to the Gulf, and India back offices for Gulf gr
 - **Language:** `en-AE`
 - **Embed:** `out/geo-uae.html`
 
@@ -145,7 +145,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/uae/it-recruitment`  (Webflow: create the folder, then the page)
 - **Title:** IT Recruitment in India for UAE companies | Stellaspire
-- **Description:** Stellaspire works with UAE-headquartered companies. We hire software engineering, data and AI roles in India, screen for what the candidate has actually built
+- **Description:** Stellaspire works with UAE-headquartered companies. We hire software, data and AI roles in India, screen for what the candidate has actually built, and run th
 - **Language:** `en-AE`
 - **Embed:** `out/geo-uae-it-recruitment.html`
 
@@ -169,7 +169,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/singapore`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency for Singapore companies | Stellaspire
-- **Description:** Stellaspire is a women-led search firm in Bengaluru. We hire finance, accounting, analytics and AI talent in India for Singapore companies, work a 2.5 hour di
+- **Description:** Women-led search firm in Bengaluru hiring finance, analytics and AI talent in India for Singapore companies, with a full shared afternoon on a 2.5 hour differ
 - **Language:** `en-SG`
 - **Embed:** `out/geo-singapore.html`
 
@@ -188,7 +188,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/singapore/it-recruitment`  (Webflow: create the folder, then the page)
 - **Title:** IT Recruitment in India for Singapore companies | Stellaspire
-- **Description:** Stellaspire works with Singapore-headquartered companies. We hire software engineering, data and AI roles in India, screen for what the candidate has actually
+- **Description:** Stellaspire works with Singapore-headquartered companies. We hire software, data and AI roles in India, screen for what the candidate has actually built, and 
 - **Language:** `en-SG`
 - **Embed:** `out/geo-singapore-it-recruitment.html`
 
@@ -212,7 +212,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/australia`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency for Australian companies | Stellaspire
-- **Description:** Stellaspire is a women-led search firm in Bengaluru. We hire finance, accounting, analytics and AI talent in India for Australian companies, work a 4.5 to 5.5
+- **Description:** Women-led search firm in Bengaluru hiring finance, analytics and AI talent in India for Australian companies, benchmarked against the GCCs competing for the s
 - **Language:** `en-AU`
 - **Embed:** `out/geo-australia.html`
 
@@ -231,7 +231,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/australia/it-recruitment`  (Webflow: create the folder, then the page)
 - **Title:** IT Recruitment in India for Australia companies | Stellaspire
-- **Description:** Stellaspire works with Australia-headquartered companies. We hire software engineering, data and AI roles in India, screen for what the candidate has actually
+- **Description:** Stellaspire works with Australia-headquartered companies. We hire software, data and AI roles in India, screen for what the candidate has actually built, and 
 - **Language:** `en-AU`
 - **Embed:** `out/geo-australia-it-recruitment.html`
 
@@ -274,7 +274,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/bangalore-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Bangalore | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire is a Bengaluru recruitment agency hiring finance, accounting, analytics, AI and leadership talent. We work from WeWork Prestige Central on Infantr
+- **Description:** Stellaspire is a Bengaluru recruitment agency on Infantry Road hiring finance, accounting, analytics, AI and leadership talent for GCCs and growth companies.
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-bangalore.html`
 
@@ -286,7 +286,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/mumbai-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Mumbai | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Mumbai. We know what BKC pays against Powai, which candidates will take a Navi M
+- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Mumbai, benchmarked against the banks and head offices competing for the same pe
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-mumbai.html`
 
@@ -298,7 +298,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/delhi-ncr-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Delhi NCR | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent across Delhi NCR, covering Gurugram, Noida, Greater Noida, Faridabad and Delhi. We 
+- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent across Gurugram, Noida, Greater Noida, Faridabad and Delhi, matched on commute and 
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-delhi-ncr.html`
 
@@ -310,7 +310,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/hyderabad-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Hyderabad | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Hyderabad. We know the HITEC City and Gachibowli employer set, what it pays agai
+- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Hyderabad, across the HITEC City and Gachibowli employer set.
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-hyderabad.html`
 
@@ -322,7 +322,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/pune-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Pune | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Pune. We cover the Hinjawadi and Kharadi GCC belt and the manufacturing and auto
+- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Pune, across the Hinjawadi and Kharadi GCC belt and the manufacturing corridor.
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-pune.html`
 
@@ -334,7 +334,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/chennai-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Chennai | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Chennai. We cover the OMR captive belt, the manufacturing corridor and the Guind
+- **Description:** Stellaspire hires finance, accounting, analytics, AI and leadership talent in Chennai, across the OMR captive belt, the manufacturing corridor and the city ce
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-chennai.html`
 
@@ -346,7 +346,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/ahmedabad-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Ahmedabad | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire hires finance, accounting, analytics and leadership talent in Ahmedabad and Gandhinagar, including GIFT City. It is the strongest value market in 
+- **Description:** Stellaspire hires finance, accounting, analytics and leadership talent in Ahmedabad and Gandhinagar, including GIFT City, the strongest value market for offsh
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-ahmedabad.html`
 
@@ -358,7 +358,7 @@ The country pages are alternates of each other, so they all carry the same hrefl
 
 - **Slug / folder:** `/india/kolkata-recruitment-agency`  (Webflow: create the folder, then the page)
 - **Title:** Recruitment agency in Kolkata | Finance, Data &amp; AI Hiring | Stellaspire
-- **Description:** Stellaspire hires finance, accounting, analytics and leadership talent in Kolkata, covering Salt Lake Sector V, New Town and the central business district. St
+- **Description:** Stellaspire hires finance, accounting, analytics and leadership talent in Kolkata, across Salt Lake Sector V, New Town and the central business district.
 - **Language:** `en-IN`
 - **Embed:** `out/geo-city-kolkata.html`
 

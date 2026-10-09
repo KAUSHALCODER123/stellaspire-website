@@ -81,7 +81,7 @@ DEFAULT_I = "Nikita Agrawal on how we hire, in under a minute. In Hindi and Engl
 CTA_EMPLOYER = """        <aside class="reel-cta">
           <p class="eyebrow eyebrow--light">Hiring now?</p>
           <p class="reel-cta-title">Tell us about the role and Nikita will take it from there.</p>
-          <a class="button" href="/contact">Start a Hiring Conversation</a>
+          <a class="button" href="/contact">Start a hiring conversation</a>
           <a class="light-link" href="/how-we-work">How we run a search <span aria-hidden="true">→</span></a>
         </aside>"""
 CTA_CANDIDATE = """        <aside class="reel-cta">
@@ -159,9 +159,9 @@ def hero_html():
           <span class="line">Finance, analytics and leadership.</span>
           <span class="line">Hired with care.</span>
         </h1>
-        <p class="hero-lead">Stellaspire is a women-led recruitment partner for GCCs and growth companies. We run selective, hands-on searches, from the first conversation to the right fit.</p>
+        <p class="hero-lead">A women-led recruitment partner for GCCs and growth companies. Selective, hands-on searches, from the first conversation to the right fit.</p>
         <div class="hero-actions">
-          <a class="button" href="#hire-talent">Start a Hiring Conversation <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#hire-talent">Start a hiring conversation <span aria-hidden="true">↗</span></a>
           <button class="hero-watch" type="button" data-open-reel="hero-reel" data-title="{why['title']}"><span class="hero-watch-icon" aria-hidden="true"></span><span>Why companies call us <small>0:{why['secs']} · Short video</small></span></button>
         </div>
       </div>
@@ -237,28 +237,33 @@ def related_section(slug):
 """
 
 
+def _div_end(html, start):
+    """Index just past the </div> that closes the <div> opening at `start`."""
+    depth, i = 0, start
+    while True:
+        o, c = html.find("<div", i), html.find("</div>", i)
+        if o != -1 and o < c:
+            depth, i = depth + 1, o + 4
+        else:
+            depth, i = depth - 1, c + 6
+            if depth == 0:
+                return i
+
+
 def hero_visual(slug, html):
-    """Put the page's graphic on the right of the hero and move the text aside below the hero."""
+    """Put the page's graphic on the right of the hero, as the second column of .page-hero-grid."""
     from hero_visuals import VISUALS
     if slug not in VISUALS or 'class="hv' in html:
         return html
-    hero_end = html.find("</section>", html.find('<section class="page-hero"'))
-    a = html.find('<aside class="short-answer"', 0, hero_end)
-    if a < 0:
+    grid = html.find('<div class="page-hero-grid">')
+    if grid < 0:
         return html
-    b = html.find("</aside>", a) + len("</aside>")
-    aside = html[a:b]
+    hero_end = html.find("</section>", grid)
+    if "photo-hero" in html[grid:hero_end]:  # the page already has a hero photo in the second column
+        return html
+    col_end = _div_end(html, html.find("<div", grid + 5))
     visual = VISUALS[slug].replace("{{LOGO}}", MEDIA.get("stellaspire-logo-s.webp", "../assets/stellaspire-logo-s.webp"))
-    html = html[:a] + visual + html[b:]
-    hero_end = html.find("</section>", html.find('<section class="page-hero"')) + len("</section>")
-    band = html.find('<div class="container photo-band">', hero_end)
-    if 0 < band < hero_end + 200:
-        fig_end = html.find("</figure>", band) + len("</figure>")
-        card = aside.replace('class="short-answer"', 'class="short-answer short-answer--card"', 1)
-        html = html[:fig_end] + "\n    " + card + html[fig_end:]
-    else:
-        html = html[:hero_end] + '\n\n  <div class="container answer-band">\n    ' + aside + "\n  </div>" + html[hero_end:]
-    return html
+    return html[:col_end] + "\n        " + visual + html[col_end:]
 
 
 # Photo slots (v7): (page, section marker, media file name, alt text). A slot renders only once its image

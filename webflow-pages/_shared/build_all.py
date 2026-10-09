@@ -54,11 +54,7 @@ for slug in SERVICES + ARTICLES + OTHER:
 
 subprocess.run([sys.executable, "-I", str(SH / "update_home.py")], check=True, stdout=subprocess.DEVNULL)
 home = ROOT / "out" / "home-page.html"
-home.write_text(rewrite(home.read_text(encoding="utf-8")).replace(
-    '<a class="textlink" href="https://recruitcrm.io/jobs/Stellaspire" target="_blank" rel="noopener noreferrer">View Active Opportunities <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>',
-    '<a class="textlink" href="/jobs">View open roles <span aria-hidden="true">→</span></a>').replace(
-    "Talent Pool and Active Opportunities open Recruit CRM in a new tab.",
-    "The talent pool form opens Recruit CRM in a new tab."), encoding="utf-8")
+home.write_text(rewrite(home.read_text(encoding="utf-8")), encoding="utf-8")
 
 # the global, country and India-city pages (they go through enhance too)
 subprocess.run([sys.executable, "-I", str(SH / "build_geo.py")], check=True, stdout=subprocess.DEVNULL)

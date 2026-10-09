@@ -68,10 +68,6 @@ def hero(crumb_html, eyebrow, h1a, h1b, lead, short, cta_label, anchor_label, an
             <a class="textlink" href="{anchor}">{anchor_label} <span aria-hidden="true">&#8594;</span></a>
           </div>
         </div>
-        <aside class="short-answer" aria-label="The short answer">
-          <p class="eyebrow">The short answer</p>
-          <p>{short}</p>
-        </aside>
       </div>
     </div>
   </section>
@@ -214,7 +210,7 @@ def faq(eyebrow, heading, items):
 """
 
 
-def cta(a, b, copy, label="Start a Hiring Conversation"):
+def cta(a, b, copy, label="Start a hiring conversation"):
     return f"""
   <!-- ============ CTA BAND ============ -->
   <section class="cta-band" aria-labelledby="cta-heading">
@@ -274,7 +270,7 @@ def country_page(key):
     body = (
         hero(crumbs([("Home", "/home-page"), ("Locations", None), (c["nav"], None)]),
              c["eyebrow"], c["h1_a"], c["h1_b"], c["lead"], c["short"],
-             "Start a Hiring Conversation", "See the roles we hire")
+             "Start a hiring conversation", "See the roles we hire")
         + split("Who this is for", c["why_h"], c["why_body"], c["why_items"])
         + table(c["roles"], "The roles we fill most often.",
                 f"Specialist hiring for {adj(c)}-headquartered teams, from a single search to a full team build.")
@@ -302,7 +298,7 @@ def service_page(key, svc):
     body = (
         hero(crumbs([("Home", "/home-page"), (c["nav"], c["path"]), (s["label"], None)]),
              f"{cap(s['kw'])} for {c['name']}", f"{s['label']} for {adj(c)} companies.",
-             s["h1_b"], lead, short, "Discuss a Mandate", "See the roles we hire")
+             s["h1_b"], lead, short, "Discuss a mandate", "See the roles we hire")
         + f"""
   <!-- ============ WHAT IS DIFFERENT ============ -->
   <section class="section" aria-labelledby="diff-heading">
@@ -338,7 +334,7 @@ def city_page(key):
     body = (
         hero(crumbs([("Home", "/home-page"), ("India", "/india"), (name, None)]),
              f"{cap(ci['kw'])}", f"{cap(ci['kw'])}.", ci["h1_b"],
-             ci["lead"], ci["short"], "Start a Hiring Conversation", "See the roles we hire")
+             ci["lead"], ci["short"], "Start a hiring conversation", "See the roles we hire")
         + split(f"The {name} market", ci["market_h"],
                 f"Three things decide whether a {name} search closes.", market_items, hid="market")
         + table(ci["sectors"], f"Who we hire for in {name}.",
@@ -389,7 +385,7 @@ def india_hub():
              "Finance, data and AI hiring in eight cities.",
              "Stellaspire is a women-led search firm based in Bengaluru. We hire finance, accounting, analytics, AI and leadership talent across India's eight main hiring markets, and we price every search against the city it sits in rather than a national average.",
              "Stellaspire hires finance, accounting, analytics, AI and leadership talent across Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune, Chennai, Ahmedabad and Kolkata, with pay benchmarked city by city.",
-             "Start a Hiring Conversation", "Choose a city", anchor="#cities")
+             "Start a hiring conversation", "Choose a city", anchor="#cities")
         + f"""
   <!-- ============ CITIES ============ -->
   <section id="cities" class="section band-line" aria-labelledby="cities-heading">
@@ -451,7 +447,7 @@ def global_hub():
              "from wherever your head office is.",
              "Stellaspire is a women-led search firm in Bengaluru. We hire finance, accounting, analytics, AI and leadership talent in India for companies headquartered in the US, the UK, the UAE, Singapore and Australia, and we answer the entity, payroll and time-zone questions before they become the reason a hire falls through.",
              "We run specialist searches in India for global companies: finance, accounting, analytics, AI and leadership. One recruiter per mandate, a shortlist with pay and notice periods written on it, and a working pattern agreed before the search opens.",
-             "Start a Hiring Conversation", "Choose your country", anchor="#countries")
+             "Start a hiring conversation", "Choose your country", anchor="#countries")
         + f"""
   <!-- ============ COUNTRIES ============ -->
   <section id="countries" class="section band-line" aria-labelledby="countries-heading">
@@ -517,7 +513,7 @@ def global_india_page():
              "What it costs, how long it takes, what goes wrong.",
              "Everything a head office outside India needs to decide before the first search opens: entity and payroll, the real cost by city and function, notice periods, attrition, the overlap window and the four things that make an India hire fail. Written by the people who run the searches.",
              "You can hire in India without an entity, and a specialist finance or data search takes four to six weeks plus a 60 to 90 day notice period. Cost varies more by city than most head offices expect, and the most common failure is a shift expectation nobody put in the brief.",
-             "Start a Hiring Conversation", "Read the practical bits", anchor="#roles")
+             "Start a hiring conversation", "Read the practical bits", anchor="#roles")
         + split("The honest version", "Four things that make an India hire fail.",
                 "None of them are about the candidate pool, which is deep. They are about the brief.",
                 [("A salary band set on a national average.",

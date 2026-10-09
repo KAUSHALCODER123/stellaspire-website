@@ -8,15 +8,13 @@
   --brand-blue: #70b5f0;
   --grad: linear-gradient(135deg, #947ad3 0%, #70b5f0 100%);
   --night: #120d24;
-  --serif: "Montserrat", Arial, "Helvetica Neue", Helvetica, sans-serif;
-  --sans: "Montserrat", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-/* Montserrat is wider than Georgia: lighter tracking, medium weight, slightly smaller display sizes */
+/* Display sizes (font families and weights come from site.src.css: Fraunces 400 headings, Montserrat text) */
 .hero-title, .page-title, .article-h1, .h2, .method-heading, .cta-title, .row-title, .card-title,
 .post-title, .article-title, .support-title, .founder-intro, .trust-title, .result-number,
 .quote-featured blockquote, .method-lede, .prose h2, .data-table td:first-child, .footer-brand, .contact-email {
-  font-weight: 500; letter-spacing: -.025em;
+  letter-spacing: -.02em;
 }
 .page-title { font-size: clamp(32px, 4vw, 56px); }
 .article-h1 { font-size: clamp(30px, 3.8vw, 50px); }
