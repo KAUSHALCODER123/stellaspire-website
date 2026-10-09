@@ -263,6 +263,15 @@ GENERIC_FAQS = [
 ]
 
 
+def merge_faqs(faqs):
+    """Append the generic questions, skipping any the page already answers (e.g. a fee question)."""
+    out = list(faqs)
+    for q, a in GENERIC_FAQS:
+        if not any("fee" in fq.lower() for fq, _ in out):
+            out.append((q, a))
+    return out
+
+
 # ------------------------------------------------------------ page writers
 def write(slug, path, title, desc, lang, body):
     PAGES[slug] = dict(path=path, title=title, desc=desc, lang=lang)
@@ -284,10 +293,10 @@ def country_page(key):
         + chips_band("Working hours", c["tz_h"], c["tz_body"], "Overlap", c["tz_chips"],
                      related=svc_links + [("Where we hire in India", "/india")], hid="overlap")
         + faq(f"{c['nav']} hiring questions", f"Questions {c['name']} clients ask.",
-              c["faqs"] + GENERIC_FAQS)
+              merge_faqs(c["faqs"]))
         + ld(f"Recruitment for {c['formal']} companies", "Specialist recruitment and executive search",
              c["lead"], c["path"], [c["formal"], "India"],
-             [("Home", "/"), (c["nav"], c["path"])], c["faqs"] + GENERIC_FAQS))
+             [("Home", "/"), (c["nav"], c["path"])], merge_faqs(c["faqs"])))
     write(f"geo-{key}", c["path"],
           f"{cap(c['kw'])} | Stellaspire",
           plain(c["short"])[:158], c["lang"], body)
@@ -296,7 +305,7 @@ def country_page(key):
 def service_page(key, svc):
     c, s = geo.COUNTRIES[key], geo.SERVICES[svc]
     cs = geo.CS[(key, svc)]
-    faqs = s["faqs"] + cs["faqs"] + GENERIC_FAQS
+    faqs = merge_faqs(s["faqs"] + cs["faqs"])
     lead = cs["angle"] + " " + s["lead_tail"]
     short = f"Stellaspire works with {adj(c)}-headquartered companies. " + s["short_tail"]
     path = f"{c['path']}/{svc}"
@@ -352,11 +361,11 @@ def city_page(key):
                      f"We run searches across the main business districts and the industrial belt around {name}.",
                      "Business districts", ci["hubs"],
                      related=others + [("All India locations", "/india")], hid="hubs")
-        + faq(f"{name} hiring questions", f"{name} hiring questions.", ci["faqs"] + GENERIC_FAQS)
+        + faq(f"{name} hiring questions", f"{name} hiring questions.", merge_faqs(ci["faqs"]))
         + ld(f"Recruitment agency in {name}", "Specialist recruitment and executive search",
              ci["lead"], ci["slugpath"], name,
              [("Home", "/"), ("India", "/india"), (name, ci["slugpath"])],
-             ci["faqs"] + GENERIC_FAQS))
+             merge_faqs(ci["faqs"])))
     write(f"geo-city-{key}", ci["slugpath"],
           f"{cap(ci['kw'])} | Finance, Data &amp; AI Hiring | Stellaspire",
           plain(ci["short"])[:158], "en-IN", body)
@@ -411,10 +420,10 @@ def india_hub():
                      "Countries", [geo.COUNTRIES[k]["nav"] for k in geo.COUNTRIES],
                      related=[(geo.COUNTRIES[k]["nav"], geo.COUNTRIES[k]["path"]) for k in geo.COUNTRIES],
                      hid="global")
-        + faq("India hiring questions", "India hiring questions.", faqs + GENERIC_FAQS)
+        + faq("India hiring questions", "India hiring questions.", merge_faqs(faqs))
         + ld("Recruitment agency in India", "Specialist recruitment and executive search",
              "Finance, accounting, analytics, AI and leadership hiring across eight Indian cities.",
-             "/india", "IN", [("Home", "/"), ("India", "/india")], faqs + GENERIC_FAQS))
+             "/india", "IN", [("Home", "/"), ("India", "/india")], merge_faqs(faqs)))
     write("geo-india", "/india", "Recruitment agency in India | Finance, Data &amp; AI Hiring | Stellaspire",
           "Stellaspire hires finance, accounting, analytics, AI and leadership talent across Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune, Chennai, Ahmedabad and Kolkata.",
           "en-IN", body)
@@ -474,11 +483,11 @@ def global_hub():
                      related=[("All India locations", "/india")]
                      + [(geo.CITIES[k]["name"], geo.CITIES[k]["slugpath"]) for k in CITY_ORDER[:4]],
                      hid="cities")
-        + faq("Global hiring questions", "Questions global teams ask.", faqs + GENERIC_FAQS)
+        + faq("Global hiring questions", "Questions global teams ask.", merge_faqs(faqs))
         + ld("Hire talent in India", "Specialist recruitment and executive search for global companies",
              "Finance, accounting, analytics, AI and leadership hiring in India for companies headquartered in the US, UK, UAE, Singapore and Australia.",
              "/global", ["US", "GB", "AE", "SG", "AU", "IN"],
-             [("Home", "/"), ("Global", "/global")], faqs + GENERIC_FAQS))
+             [("Home", "/"), ("Global", "/global")], merge_faqs(faqs)))
     write("geo-global", "/global", "Hire talent in India | Global recruitment partner | Stellaspire",
           "Stellaspire hires finance, accounting, analytics, AI and leadership talent in India for companies headquartered in the US, UK, UAE, Singapore and Australia.",
           "en", body)
@@ -534,12 +543,12 @@ def global_india_page():
                      related=[("All India locations", "/india")]
                      + [(geo.COUNTRIES[k]["nav"], geo.COUNTRIES[k]["path"]) for k in geo.COUNTRIES],
                      hid="cities")
-        + faq("Hiring in India", "What head offices ask us.", faqs + GENERIC_FAQS)
+        + faq("Hiring in India", "What head offices ask us.", merge_faqs(faqs))
         + ld("Hire talent in India", "Recruitment and executive search in India for global companies",
              "What it costs to hire in India, how long a search takes, entity and payroll routes, notice periods and the four things that make an India hire fail.",
              "/global/hire-talent-india", ["US", "GB", "AE", "SG", "AU", "IN"],
              [("Home", "/"), ("Global", "/global"), ("Hire talent in India", "/global/hire-talent-india")],
-             faqs + GENERIC_FAQS))
+             merge_faqs(faqs)))
     write("geo-global-hire-talent-india", "/global/hire-talent-india",
           "Hire talent in India: cost, timeline and how it works | Stellaspire",
           "What it costs to hire in India, how long a search takes, whether you need an entity, notice periods and the four things that make an India hire fail.",
