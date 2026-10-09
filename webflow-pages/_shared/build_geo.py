@@ -164,9 +164,16 @@ def cards(eyebrow, heading, intro, items, hid="models", band="band-mist"):
 """
 
 
+# Pages that exist in Webflow today. The city and country+service pages need site folders
+# (/india/..., /us/...) that the Data API cannot create, so links to them are held back
+# until those folders exist in the Designer.
+LIVE_PATHS = {"/india", "/global", "/us", "/uk", "/uae", "/singapore", "/australia", "/contact", "/how-we-work"}
+
+
 def chips_band(eyebrow, heading, body, chip_label, chips, related=None, hid="where"):
     chip_html = "".join(f'<span class="chip">{c}</span>' for c in chips)
     rel = ""
+    related = [(t, h) for t, h in (related or []) if h in LIVE_PATHS]
     if related:
         rel_html = "".join(f'<a class="chip" href="{h}">{t} &#8594;</a>' for t, h in related)
         rel = f'\n        <p class="eyebrow" style="margin-top:40px">Related</p>\n        <div class="chips">{rel_html}</div>'
@@ -358,11 +365,11 @@ def city_page(key):
 def india_hub():
     city_cards = [(geo.CITIES[k]["name"], cap(geo.CITIES[k]["kw"]),
                    plain(geo.CITIES[k]["lead"])[:150] + "...") for k in CITY_ORDER]
+    # plain cards until the city pages exist in Webflow (see LIVE_PATHS)
     cs = "\n".join(
-        f'        <a class="card" href="{geo.CITIES[k]["slugpath"]}"><p class="card-meta">{geo.CITIES[k]["name"]}</p>'
+        f'        <div class="card"><p class="card-meta">{geo.CITIES[k]["name"]}</p>'
         f'<h3 class="card-title">{cap(geo.CITIES[k]["kw"])}</h3>'
-        f'<p class="body-copy">{plain(geo.CITIES[k]["market"][0])[:135]}&#8230;</p>'
-        f'<span class="textlink">Hiring in {geo.CITIES[k]["name"]} <span aria-hidden="true">&#8594;</span></span></a>'
+        f'<p class="body-copy">{plain(geo.CITIES[k]["market"][0])[:135]}&#8230;</p></div>'
         for k in CITY_ORDER)
     faqs = [
         ("Which Indian cities do you hire in?",
